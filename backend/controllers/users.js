@@ -51,7 +51,7 @@ const userSignIn = async (req, res) => {
           if (err) {
             res.status(404).json({ message: "failed to generate token" });
           }
-          res.status(404).json({ token: token });
+          res.status(404).json({emailid:emailId,token: token });
         }
       );
     }
