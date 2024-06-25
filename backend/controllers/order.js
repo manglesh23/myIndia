@@ -1,4 +1,5 @@
 const Order = require("../models/order");
+const Product = require('../models/product');
 
 const createOrder = async (req, res) => {
   const { products } = req.body;
@@ -35,7 +36,7 @@ const createOrder = async (req, res) => {
     res.json(order);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).send("Internal Server error");
   }
 };
 
