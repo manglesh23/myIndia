@@ -1,8 +1,9 @@
 const Order = require("../models/order");
 const Product = require("../models/product");
+const { processPaypalPayment } = require("../payment/payment");
 
 const createOrder = async (req, res) => {
-    console.log("req.user:-",req.user.id);
+  console.log("req.user:-", req.user.id);
   const { products } = req.body;
   console.log("products:-", products);
 
@@ -34,7 +35,9 @@ const createOrder = async (req, res) => {
     });
 
     const order = await newOrder.save();
-    res.status(200).json({orders:order});
+    let paymentResponse = await processPaypalPayment(total, "Order payment");
+    console.log("Payment Process:-", paymentResponse);
+    res.status(200).json({ orders: order, paymentResponse: paymentResponse });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Internal Server error");
