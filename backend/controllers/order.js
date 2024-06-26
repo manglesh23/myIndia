@@ -2,11 +2,12 @@ const Order = require("../models/order");
 const Product = require("../models/product");
 
 const createOrder = async (req, res) => {
+    console.log("req.user:-",req.user.id);
   const { products } = req.body;
   console.log("products:-", products);
+
   try {
     let total = 0;
-
     for (let item of products) {
       const product = await Product.findById(item.product);
       if (!product) {
@@ -33,7 +34,7 @@ const createOrder = async (req, res) => {
     });
 
     const order = await newOrder.save();
-    res.json(order);
+    res.status(200).json({orders:order});
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Internal Server error");

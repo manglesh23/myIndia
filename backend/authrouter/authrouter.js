@@ -9,6 +9,6 @@ router.route('/signin').get(userSignIn);
 router.route('/createproduct').post(createproduct);
 router.route('/getproducts').get(authMiddleware,getProducts);
 router.route('/getorder').get(getOrders);
-router.route('/createorder').get(createOrder);
+router.route('/createorder').get(authMiddleware,createOrder);
 
 module.exports={router}

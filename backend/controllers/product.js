@@ -13,6 +13,7 @@ const createproduct = async (req, res) => {
     };
   }
 };
+
 const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
@@ -23,4 +24,5 @@ const getProducts = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
 module.exports = { createproduct, getProducts };

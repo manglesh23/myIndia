@@ -38,11 +38,12 @@ const userSignIn = async (req, res) => {
     const { emailId, password } = req.body;
     console.log(emailId, password);
     let checkEmail = await User.findOne({ emailId: emailId });
-    console.log(checkEmail);
+    console.log(checkEmail._id);
+    
     if (!checkEmail || !checkEmail.comparePassword(password)) {
       res.status(200).json({ message: "Incorrect Credentials" });
     } else {
-      let payload = { user: { id: emailId } };
+      let payload = { user: { id: checkEmail._id } };
       jswebtoken.sign(
         payload,
         process.env.TOKEN_SECRET_KEY,
