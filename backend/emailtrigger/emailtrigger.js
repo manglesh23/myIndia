@@ -1,18 +1,18 @@
 const nodemailer = require("nodemailer");
-
+require('dotenv').config();
 const sendEmail = async (to, subject, text) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.qlc.co.in",
-      port: 587,
+      host: process.env.AUTH_HOST,
+      port: process.env.AUTH_PORT,
       secure: false,
       auth: {
-        user: "no-reply@meraqui.com",
-        pass: "Meraqui@1234",
+        user: process.env.AUTH_USER_EMAIL,
+        pass: process.env.AUTH_USER_PASSWORD,
       },
     });
     const mainOptions = {
-      from: "no-reply@meraqui.com",
+      from: "no-reply@myindia.com",
       to,
       subject,
       text,
