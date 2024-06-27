@@ -38,6 +38,7 @@ const createOrder = async (req, res) => {
     let paymentResponse = await processPaypalPayment(total, "Order payment");
     console.log("Payment Process:-", paymentResponse);
     res.status(200).json({ orders: order, paymentResponse: paymentResponse });
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Internal Server error");

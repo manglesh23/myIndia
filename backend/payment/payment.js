@@ -4,12 +4,12 @@ const nock = require("nock");
 nock("https://api.paypal.com")
   .post("/v1/payments/payment")
   .reply(200, {
-    id: "payment_id_123",
+    id: "payment_id_ref123mfe4589",
     state: "approved",
     transactions: [
       {
         amount: {
-          total: "50.00",
+          total: "100",
           currency: "USD",
         },
         description: "Mock payment for order",
