@@ -9,15 +9,15 @@ const orderController=require('../controllers/order');
 
 const authMiddleware = require('../middleware/middleware');
 
-router.route('/createuser').post(userController.createUser);
+router.route('/createuser').post(authMiddleware,userController.createUser);
 
 router.route('/signin').get(userController.userSignIn);
 
-router.route('/createproduct').post(productController.createproduct);
+router.route('/createproduct').post(authMiddleware,productController.createproduct);
 
 router.route('/getproducts').get(authMiddleware,productController.getProducts);
 
-router.route('/getorder').get(orderController.getOrders);
+router.route('/getorder').get(authMiddleware,orderController.getOrders);
 
 router.route('/createorder').get(authMiddleware,orderController.createOrder);
 

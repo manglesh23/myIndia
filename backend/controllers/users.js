@@ -1,7 +1,9 @@
 const { error } = require("console");
 const User = require("../models/users");
 const jswebtoken = require("jsonwebtoken");
+
 const {sendEmail}=require('../emailtrigger/emailtrigger');
+
 const createUser = async (req, res) => {
   try {
     //    res.status(200).json({message:"Creating USer"});
@@ -13,7 +15,7 @@ const createUser = async (req, res) => {
       emailId,
       password,
     });
-    
+
     let sendEmailNotification=await sendEmail(emailId,"Registration","Your Registration has been done successfully");
 
     let payload = { user: { id: createuser._id } };
