@@ -3,13 +3,11 @@ const router=express.Router();
 
 const userController=require('../controllers/users');
 
-
 const productController=require('../controllers/product');
 
-const authMiddleware = require('../middleware/middleware');
-
-
 const orderController=require('../controllers/order');
+
+const authMiddleware = require('../middleware/middleware');
 
 router.route('/createuser').post(userController.createUser);
 
