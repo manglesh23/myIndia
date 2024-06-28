@@ -1,4 +1,3 @@
-const exp = require("constants");
 const express = require("express");
 const { connectDatabase } = require("./databaseConnection/databaseConnect");
 const { router } = require("./authrouter/authrouter");
