@@ -2,6 +2,10 @@ const Order = require("../models/order");
 const Product = require("../models/product");
 const { processPaypalPayment } = require("../payment/payment");
 
+/* -------------------------------------------------------------------------- */
+/*                             Create Order Controller                        */
+/* -------------------------------------------------------------------------- */
+
 const createOrder = async (req, res) => {
   console.log("req.user:-", req.user.id);
   const { products } = req.body;
@@ -45,6 +49,10 @@ const createOrder = async (req, res) => {
   }
 };
 
+/* -------------------------------------------------------------------------- */
+/*                             Get Order Controller                           */
+/* -------------------------------------------------------------------------- */
+
 const getOrders = async (req, res) => {
   try {
     const orders = await Order.find()
@@ -56,6 +64,10 @@ const getOrders = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+/* -------------------------------------------------------------------------- */
+/*                            get Order By Id Controller                      */
+/* -------------------------------------------------------------------------- */
 
 const getOrderById = async (req, res) => {
   try {

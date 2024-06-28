@@ -1,5 +1,10 @@
 const nodemailer = require("nodemailer");
 require('dotenv').config();
+
+/* -------------------------------------------------------------------------- */
+/*                                 Send Email Function                                */
+/* -------------------------------------------------------------------------- */
+
 const sendEmail = async (to, subject, text) => {
   try {
     const transporter = nodemailer.createTransport({

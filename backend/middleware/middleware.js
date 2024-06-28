@@ -1,6 +1,10 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+/* -------------------------------------------------------------------------- */
+/*                             Token Verification middleware                  */
+/* -------------------------------------------------------------------------- */
+
 const authMiddleware = (req, res, next) => {
   const token = req.header("Authorization").replace("Bearer ", "");
   if (!token) {

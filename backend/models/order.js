@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+/* -------------------------------------------------------------------------- */
+/*                                 Order Schema                               */
+/* -------------------------------------------------------------------------- */
 
 const OrderSchema = new mongoose.Schema({
     user: {
@@ -29,4 +32,5 @@ const OrderSchema = new mongoose.Schema({
     }
 });
 
+//Export Order Schema
 module.exports = mongoose.model('Order', OrderSchema);

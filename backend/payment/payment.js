@@ -1,6 +1,8 @@
 const axios = require("axios");
 const nock = require("nock");
-
+/* -------------------------------------------------------------------------- */
+/*                            Paypal Payment Mock Integration                 */
+/* -------------------------------------------------------------------------- */
 nock("https://api.paypal.com")
   .post("/v1/payments/payment")
   .reply(200, {

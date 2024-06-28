@@ -4,6 +4,10 @@ const jswebtoken = require("jsonwebtoken");
 
 const {sendEmail}=require('../emailtrigger/emailtrigger');
 
+/* -------------------------------------------------------------------------- */
+/*                           Create  User                                     */
+/* -------------------------------------------------------------------------- */
+
 const createUser = async (req, res) => {
   try {
     //    res.status(200).json({message:"Creating USer"});
@@ -37,6 +41,10 @@ const createUser = async (req, res) => {
     };
   }
 };
+
+/* -------------------------------------------------------------------------- */
+/*                             User SignIn                                    */
+/* -------------------------------------------------------------------------- */
 
 const userSignIn = async (req, res) => {
   try {

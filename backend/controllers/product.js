@@ -1,5 +1,8 @@
 const Product = require("../models/product");
 
+/* -------------------------------------------------------------------------- */
+/*                             Create Product Controller                      */
+/* -------------------------------------------------------------------------- */
 const createproduct = async (req, res) => {
   try {
     const { name, description, price, stock } = req.body;
@@ -13,6 +16,10 @@ const createproduct = async (req, res) => {
     };
   }
 };
+
+/* -------------------------------------------------------------------------- */
+/*                             Get Product Controller                         */
+/* -------------------------------------------------------------------------- */
 
 const getProducts = async (req, res) => {
   try {
